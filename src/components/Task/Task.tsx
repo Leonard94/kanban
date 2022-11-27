@@ -2,11 +2,11 @@ import { useState } from 'react'
 
 import { TTask } from '../../types/types'
 
-import * as Icon from '../../assets/icons/index'
-
-import styles from './styles.module.scss'
 import { Modal } from '../Modal/Modal'
 import { TaskSettings } from './TaskSettings/TaskSettings'
+
+import * as Icon from '../../assets/icons/index'
+import styles from './styles.module.scss'
 
 // todo
 /*

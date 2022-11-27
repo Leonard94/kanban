@@ -26,10 +26,12 @@ export const Kanban = () => {
             {
               id: 1,
               title: 'Подзадача номер 1',
+              completed: false
             },
             {
               id: 2,
               title: 'Подзадача номер 2',
+              completed: false
             },
           ],
         },
