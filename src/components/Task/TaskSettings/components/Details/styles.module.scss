@@ -1,0 +1,35 @@
+@import '../../../../../scss/typography.scss';
+@import '../../../../../scss/variables.scss';
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 15px;
+  @include small;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+
+  cursor: pointer;
+
+  path {
+    stroke: $text-color-second;
+  }
+
+  &:hover {
+    color: $color-danger;
+
+    path {
+      stroke: $color-danger;
+    }
+  }
+}
+
+.created {
+}

@@ -1,0 +1,59 @@
+@import '../../scss/variables.scss';
+@import '../../scss/typography.scss';
+
+.row {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.input {
+  width: 90%;
+  padding: 5px 0px;
+  caret-color: $bg-accent;
+  outline: none;
+
+  @include input;
+
+  border: 2px solid $bg-main;
+  border-radius: 10px;
+  background: $bg-main;
+
+  &::placeholder {
+    font-size: 12px;
+    color: $text-color-second;
+    font-weight: 300;
+  }
+
+  &:focus {
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.05);
+    border-color: $bg-accent;
+    padding: 10px;
+  }
+
+  &_title {
+    @include title;
+  }
+
+  &_invalid {
+    border-color: $color-danger;
+  }
+
+  &::placeholder {
+    color: #b5b5b5;
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+.error {
+  position: absolute;
+  padding: 0px 0 0 10px;
+
+  font-size: 12px;
+  color: $color-danger;
+}

@@ -1,0 +1,22 @@
+@import '../assets/fonts/fonts.scss';
+@import '../scss/typography.scss';
+
+#root,
+html,
+.app {
+  height: 100%;
+}
+
+body {
+  @include base;
+
+  height: 100%;
+}
+
+.content {
+  background: $bg-second;
+}
+
+.title {
+  @include h1;
+}

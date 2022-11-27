@@ -1,0 +1,68 @@
+@import '../../scss/variables.scss';
+@import '../../scss/typography.scss';
+
+.task {
+  width: 250px;
+  padding: 20px;
+
+  border-radius: 10px;
+  background: $bg-main;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.content {
+  position: relative;
+}
+
+.settings {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+
+  &:hover path {
+    stroke: $bg-accent;
+  }
+}
+
+.title {
+  @include title;
+
+  margin-bottom: 15px;
+}
+
+.important {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+  @include small;
+  color: $color-danger;
+  font-weight: 500;
+
+  path {
+    stroke: $color-danger;
+  }
+}
+
+.info {
+  display: flex;
+  gap: 15px;
+
+  padding-top: 15px;
+  border-top: 1px solid #f4f4f4;
+
+  path {
+    stroke: $text-color-light;
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @include small;
+  }
+}
