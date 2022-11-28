@@ -14,7 +14,7 @@ import styles from './styles.module.scss'
 */
 
 export const Task: React.FC<TTask> = (props) => {
-  const { id, title, description, important } = props
+  const { id, title, description, important, child } = props
   const [isOpenSettings, setOpenSettings] = useState(false)
   const toggleOpenSettings = () => setOpenSettings(!isOpenSettings)
 
@@ -39,7 +39,7 @@ export const Task: React.FC<TTask> = (props) => {
         </div>
         <div className={styles.info_item}>
           <Icon.Subtasks />
-          <span>0</span>
+          <span>{child?.length || 0}</span>
         </div>
         <div className={styles.info_item}>
           <Icon.Time />

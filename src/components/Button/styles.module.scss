@@ -9,6 +9,8 @@
   border-width: 1px;
   border-style: solid;
 
+  cursor: pointer;
+
   @include small;
 
   &_full {
