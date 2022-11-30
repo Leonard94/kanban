@@ -1,10 +1,17 @@
 @import '../assets/fonts/fonts.scss';
 @import '../scss/typography.scss';
+@import '../scss/reset.scss';
 
 #root,
 html,
 .app {
   height: 100%;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100% 100%;
 }
 
 body {
@@ -14,7 +21,14 @@ body {
 }
 
 .content {
+  padding-top: 40px;
   background: $bg-second;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .title {

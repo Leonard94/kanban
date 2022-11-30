@@ -32,6 +32,18 @@
   color: $text-color-grey;
 }
 
+@mixin menu {
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 120%;
+  color: $text-color-grey;
+
+  &:hover {
+    color: $text-color-accent;
+  }
+}
+
 @mixin small {
   font-family: 'Inter';
   font-size: 14px;

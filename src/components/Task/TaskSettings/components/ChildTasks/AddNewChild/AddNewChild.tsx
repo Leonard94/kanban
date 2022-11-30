@@ -10,7 +10,7 @@ type TProps = {
 }
 
 // todo
-// OnFocus при монитровании компонента
+// OnFocus при монтировании компонента
 
 export const AddNewChild: React.FC<TProps> = ({ toggleEditMode }) => {
   const [title, setTitle] = useState('')

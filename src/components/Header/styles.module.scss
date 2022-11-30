@@ -1,0 +1,28 @@
+@import '../../scss/variables.scss';
+@import '../../scss/typography.scss';
+
+.header {
+  padding: 20px;
+  
+  background: $bg-main;
+}
+
+.logo {
+  background: blue;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+
+.projects {
+  margin: 20px 0;
+}
+
+.title {
+  @include title;
+  margin-bottom: 10px;
+}
+
+.menu li a {
+  @include menu;
+}

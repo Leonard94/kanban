@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import { Board } from './components/Board/Board'
 
 import styles from './styles.module.scss'
 
 export const Kanban = () => {
+  const { id } = useParams()
+
   const [boards, setBoards] = useState([
     {
       id: 1,
@@ -26,12 +30,12 @@ export const Kanban = () => {
             {
               id: 1,
               title: 'Подзадача номер 1',
-              completed: false
+              completed: false,
             },
             {
               id: 2,
               title: 'Подзадача номер 2',
-              completed: false
+              completed: false,
             },
           ],
         },
@@ -69,6 +73,8 @@ export const Kanban = () => {
       ],
     },
   ])
+
+  // Запрашивать нужные данные с redux 
 
   return (
     <>
