@@ -3,15 +3,19 @@
 
 .header {
   padding: 20px;
-  
   background: $bg-main;
 }
 
 .logo {
-  background: blue;
+  display: block;
   width: 100%;
   height: 40px;
+
+  border-radius: 5px;
+  background: $bg-accent;
+
   color: white;
+  text-align: center;
 }
 
 .projects {
@@ -19,8 +23,13 @@
 }
 
 .title {
-  @include title;
   margin-bottom: 10px;
+
+  @include title;
+
+  &:hover {
+    color: $text-color-accent;
+  }
 }
 
 .menu li a {

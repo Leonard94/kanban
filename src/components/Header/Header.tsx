@@ -1,7 +1,8 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import { useAppSelector } from '../../store/hooks'
 
+import { ReactComponent as Logo } from '../../assets/icons/logo.svg'
 import styles from './styles.module.scss'
 
 export const Header = () => {
@@ -9,16 +10,18 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <span>logo</span>
-      </div>
+      <Link to='/' className={styles.logo}>
+        <Logo />
+      </Link>
       <div className={styles.projects}>
-        <p className={styles.title}>Your Projects</p>
+        <Link to='/' className={styles.title}>
+          Your Projects
+        </Link>
         <nav>
           <ul className={styles.menu}>
             {projects.map((project) => (
               <li key={project.id}>
-                <NavLink to='/kanban'>{project.title}</NavLink>
+                <NavLink to={`/kanban/${project.id}`}>{project.title}</NavLink>
               </li>
             ))}
           </ul>

@@ -11,9 +11,9 @@ import styles from './styles.module.scss'
 
 export const Kanban = () => {
   const { id } = useParams()
+  const { columns } = useAppSelector((state) => state.kanban)
 
   const dispatch = useDispatch()
-  const { columns } = useAppSelector((state) => state.kanban)
 
   const handleDrag = (result: any) => {
     dragEnd(result, columns, dispatch)
@@ -31,7 +31,7 @@ export const Kanban = () => {
             return (
               <div key={columnId}>
                 <h2>{column.name}</h2>
-                <div style={{ margin: 8 }}>
+                <div className={styles.column}>
                   <Droppable droppableId={columnId} key={columnId}>
                     {(provided, snapshot) => {
                       return (
