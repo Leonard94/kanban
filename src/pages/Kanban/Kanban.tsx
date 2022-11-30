@@ -1,5 +1,9 @@
-import { useState } from 'react'
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+
+import { useAppSelector } from '../../store/hooks'
+import { dragEnd } from './helpers'
 
 import { Board } from './components/Board/Board'
 
@@ -8,81 +12,84 @@ import styles from './styles.module.scss'
 export const Kanban = () => {
   const { id } = useParams()
 
-  const [boards, setBoards] = useState([
-    {
-      id: 1,
-      title: 'Queue',
-      tasks: [
-        {
-          id: 1,
-          title: 'Первая задача',
-          description: 'Описание первой задачи',
-          timeCreate: 1668767058,
-          child: null,
-        },
-        {
-          id: 2,
-          title: 'Вторая задача',
-          description: 'Описание второй задачи',
-          timeCreate: 1668767058,
-          important: true,
-          child: [
-            {
-              id: 1,
-              title: 'Подзадача номер 1',
-              completed: false,
-            },
-            {
-              id: 2,
-              title: 'Подзадача номер 2',
-              completed: false,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: 'Development',
-      tasks: [
-        {
-          id: 1,
-          title: 'Первая задача в разработке',
-          timeCreate: 1668767058,
-          child: null,
-        },
-        {
-          id: 2,
-          title: 'Вторая задача в разработке',
-          timeCreate: 1668767058,
-          child: null,
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: 'Done',
-      tasks: [
-        {
-          id: 1,
-          title: 'Первая задача выполнена',
-          description: 'Описание первой задачи',
-          timeCreate: 1668767058,
-          child: null,
-        },
-      ],
-    },
-  ])
+  const dispatch = useDispatch()
+  const { columns } = useAppSelector((state) => state.kanban)
 
-  // Запрашивать нужные данные с redux 
+  const handleDrag = (result: any) => {
+    dragEnd(result, columns, dispatch)
+  }
 
   return (
     <>
       <h1 className='title'>Your tasks</h1>
       <div className={styles.kanban}>
-        {boards.map((board) => (
+        {/* {boards.map((board) => (
           <Board key={board.id} {...board} />
-        ))}
+        ))} */}
+        <DragDropContext onDragEnd={handleDrag}>
+          {Object.entries(columns).map(([columnId, column]) => {
+            return (
+              <div key={columnId}>
+                <h2>{column.name}</h2>
+                <div style={{ margin: 8 }}>
+                  <Droppable droppableId={columnId} key={columnId}>
+                    {(provided, snapshot) => {
+                      return (
+                        <div
+                          {...provided.droppableProps}
+                          ref={provided.innerRef}
+                          style={{
+                            background: snapshot.isDraggingOver
+                              ? 'lightblue'
+                              : 'lightgrey',
+                            padding: 4,
+                            width: 250,
+                            minHeight: 500,
+                          }}
+                        >
+                          {column.tasks.map((item, index) => {
+                            // ! item.id!!
+                            return (
+                              <Draggable
+                                key={item.id}
+                                draggableId={item?.id?.toString() || '2'}
+                                index={index}
+                              >
+                                {(provided, snapshot) => {
+                                  return (
+                                    <div
+                                      ref={provided.innerRef}
+                                      {...provided.draggableProps}
+                                      {...provided.dragHandleProps}
+                                      style={{
+                                        userSelect: 'none',
+                                        padding: 16,
+                                        margin: '0 0 8px 0',
+                                        minHeight: '50px',
+                                        backgroundColor: snapshot.isDragging
+                                          ? '#263B4A'
+                                          : '#456C86',
+                                        color: 'white',
+                                        ...provided.draggableProps.style,
+                                      }}
+                                    >
+                                      {item.title}
+                                    </div>
+                                  )
+                                }}
+                              </Draggable>
+                            )
+                          })}
+                          {provided.placeholder}
+                        </div>
+                      )
+                    }}
+                  </Droppable>
+                </div>
+              </div>
+            )
+          })}
+        </DragDropContext>
       </div>
     </>
   )
