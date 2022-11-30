@@ -1,21 +1,15 @@
-import { useSelector, useDispatch } from 'react-redux'
-
-import { removeProject } from '../../store/projects/projects-actions'
+import { useAppSelector } from '../../store/hooks'
 
 import { Project } from './Project/Project'
 
 import styles from './styles.module.scss'
 
 export const Projects = () => {
-  const { projects: projectsList }: any = useSelector((state) => state)
-  const dispatch = useDispatch()
+  const { projects } = useAppSelector((state) => state.projects)
 
   return (
     <div className={styles.projects}>
-      <button onClick={() => dispatch(removeProject(1))}>
-        Удалить первый idazx
-      </button>
-      {projectsList.map((project: any) => (
+      {projects.map((project) => (
         <Project key={project.id} {...project} />
       ))}
     </div>

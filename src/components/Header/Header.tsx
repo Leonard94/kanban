@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useAppSelector } from '../../store/hooks'
 
 import styles from './styles.module.scss'
 
 export const Header = () => {
-  const { projects: projectsList }: any = useSelector((state) => state)
+  const { projects } = useAppSelector((state) => state.projects)
 
   return (
     <header className={styles.header}>
@@ -16,8 +16,8 @@ export const Header = () => {
         <p className={styles.title}>Your Projects</p>
         <nav>
           <ul className={styles.menu}>
-            {projectsList.map((project: any, index: number) => (
-              <li key={index}>
+            {projects.map((project) => (
+              <li key={project.id}>
                 <NavLink to='/kanban'>{project.title}</NavLink>
               </li>
             ))}
