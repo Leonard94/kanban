@@ -1,0 +1,21 @@
+@import '../../../../../../../scss/typography.scss';
+
+.info {
+  display: flex;
+  gap: 15px;
+
+  padding-top: 15px;
+  border-top: 1px solid #f4f4f4;
+
+  path {
+    stroke: $text-color-light;
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @include small;
+  }
+}

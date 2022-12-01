@@ -10,10 +10,11 @@ type TProps = {
   full?: boolean
   disabled?: boolean
   style?: React.CSSProperties
+  isSubmitType?: boolean
 }
 
 export const Button: React.FC<TProps> = (props) => {
-  const { children, type, onClick, full, disabled, style } = props
+  const { children, type, isSubmitType, onClick, full, disabled, style } = props
 
   const clickHandler = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -35,7 +36,7 @@ export const Button: React.FC<TProps> = (props) => {
       className={btnClass}
       onClick={clickHandler}
       disabled={disabled}
-      type='button'
+      type={isSubmitType ? 'submit' : 'button'}
       style={style}
     >
       {children}

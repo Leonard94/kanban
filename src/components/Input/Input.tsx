@@ -12,11 +12,21 @@ type TProps = {
   error?: string | null
   onFocus?: () => void
   isTitle?: boolean
+  style?: React.CSSProperties
 }
 
 export const Input: React.FC<TProps> = (props) => {
-  const { name, value, onChange, placeholder, label, error, onFocus, isTitle } =
-    props
+  const {
+    name,
+    value,
+    onChange,
+    placeholder,
+    label,
+    error,
+    onFocus,
+    isTitle,
+    style,
+  } = props
 
   const inputClass = cn(styles.input, {
     [styles.input_invalid]: error,
@@ -24,7 +34,7 @@ export const Input: React.FC<TProps> = (props) => {
   })
 
   return (
-    <div className={styles.row}>
+    <div className={styles.row} style={style}>
       {label && <label className={styles.label}>{label}</label>}
       <input
         type='text'

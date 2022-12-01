@@ -37,6 +37,10 @@
   border-radius: 10px;
   background: $bg-main;
 
+  &_small {
+    width: 400px;
+  }
+
   // @media (max-width: 620px) {
   //   padding: 20px 10px;
   //   width: calc(100% - 15px);

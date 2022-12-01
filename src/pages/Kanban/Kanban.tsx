@@ -8,6 +8,7 @@ import { dragEnd } from './helpers'
 import { Column } from './components/Column/Column'
 
 import styles from './styles.module.scss'
+import { AddNewTask } from './components/AddNewTask/AddNewTask'
 
 export const Kanban = () => {
   const { id } = useParams()
@@ -21,7 +22,10 @@ export const Kanban = () => {
 
   return (
     <>
-      <h1 className='title'>Your tasks</h1>
+      <div className={styles.head}>
+        <h1>Your tasks</h1>
+        <AddNewTask projectId={id} />
+      </div>
       <div className={styles.kanban}>
         <DragDropContext onDragEnd={handleDrag}>
           {Object.entries(columns).map(([columnId, column]) => (

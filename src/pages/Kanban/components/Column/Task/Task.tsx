@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
-import { TChildTasks } from '../../../../types/types'
+import { TChildTasks } from '../../../../../types/types'
 
 import { TaskSettings } from './components/TaskSettings/TaskSettings'
-import { Modal } from '../../../../components/Modal/Modal'
+import { Modal } from '../../../../../components/Modal/Modal'
 
-import * as Icon from '../../../../assets/icons/index'
+import * as Icon from '../../../../../assets/icons/index'
 import styles from './styles.module.scss'
 import { TaskFooter } from './components/TaskFooter/TaskFooter'
 
@@ -35,6 +35,11 @@ export const Task: React.FC<TProps> = (props) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          style={{
+            userSelect: 'none',
+            backgroundColor: snapshot.isDragging ? '#f5f5f5' : '#fff',
+            ...provided.draggableProps.style,
+          }}
         >
           <div className={styles.content}>
             <div className={styles.settings} onClick={toggleOpenSettings}>

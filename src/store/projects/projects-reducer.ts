@@ -19,7 +19,6 @@ type TChildTasks = {
 type TProject = {
   id: number
   title: string
-  tasks: TTask[]
 }
 
 type TProjectsInitial = {
@@ -36,32 +35,6 @@ const initialState: TProjectsInitial = {
     {
       id: 1,
       title: 'Первый Project',
-      tasks: [
-        {
-          id: 1,
-          board: 'Queue',
-          title: 'Первая задача',
-          description: 'Описание первой задачи',
-          timeCreate: 1668767058,
-          child: null,
-        },
-        {
-          id: 2,
-          board: 'Development',
-          title: 'Вторая задача',
-          description: 'Описание второй задачи',
-          timeCreate: 1668767058,
-          child: null,
-        },
-        {
-          id: 3,
-          board: 'Done',
-          title: 'Вторая задача',
-          description: 'Описание второй задачи',
-          timeCreate: 1668767058,
-          child: null,
-        },
-      ],
     },
   ],
 }
@@ -82,7 +55,6 @@ export const projectsReducer = (
           {
             id: Date.now(),
             title: payload.title,
-            tasks: [],
           },
         ],
       }

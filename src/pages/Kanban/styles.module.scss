@@ -1,6 +1,16 @@
 @import '../../scss/variables.scss';
+@import '../../scss/typography.scss';
 
 .kanban {
   display: flex;
   min-height: 100vh;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  @include h1;
 }

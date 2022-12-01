@@ -1,7 +1,7 @@
 import { Droppable } from 'react-beautiful-dnd'
 
 import { TTask } from '../../../../types/types'
-import { Task } from '../Task/Task'
+import { Task } from './Task/Task'
 
 import styles from './styles.module.scss'
 
@@ -25,7 +25,7 @@ export const Column: React.FC<TProps> = ({ columnId, name, tasks }) => {
             ref={provided.innerRef}
             style={{
               borderRadius: '10px',
-              background: snapshot.isDraggingOver ? '#4a7ef8' : '#f9f9f9',
+              background: snapshot.isDraggingOver ? '#8AABF9' : '#f9f9f9',
             }}
           >
             <div className={styles.tasks}>

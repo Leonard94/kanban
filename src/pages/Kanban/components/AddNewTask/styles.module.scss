@@ -1,0 +1,19 @@
+.add {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  svg {
+    max-width: 100%;
+  }
+
+  &:hover {
+    transform: rotate(45deg);
+  }
+}
