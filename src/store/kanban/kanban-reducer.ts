@@ -55,6 +55,63 @@ const initialState: TKanbanInitial = {
             },
           ],
         },
+        {
+          id: 3,
+          title: 'Вторая задача',
+          description: 'Описание второй задачи',
+          timeCreate: 1668767058,
+          important: true,
+          child: [
+            {
+              id: 1,
+              title: 'Подзадача номер 1',
+              completed: false,
+            },
+            {
+              id: 2,
+              title: 'Подзадача номер 2',
+              completed: false,
+            },
+          ],
+        },
+        {
+          id: 4,
+          title: 'Вторая задача',
+          description: 'Описание второй задачи',
+          timeCreate: 1668767058,
+          important: true,
+          child: [
+            {
+              id: 1,
+              title: 'Подзадача номер 1',
+              completed: false,
+            },
+            {
+              id: 2,
+              title: 'Подзадача номер 2',
+              completed: false,
+            },
+          ],
+        },
+        {
+          id: 5,
+          title: 'Вторая задача',
+          description: 'Описание второй задачи',
+          timeCreate: 1668767058,
+          important: true,
+          child: [
+            {
+              id: 1,
+              title: 'Подзадача номер 1',
+              completed: false,
+            },
+            {
+              id: 2,
+              title: 'Подзадача номер 2',
+              completed: false,
+            },
+          ],
+        },
       ],
     },
     development: {

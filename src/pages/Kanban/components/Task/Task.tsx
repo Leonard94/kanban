@@ -22,7 +22,7 @@ type TProps = {
 }
 
 export const Task: React.FC<TProps> = (props) => {
-  const { index, id, title, description, important, child } = props
+  const { index, id, title, important, child } = props
 
   const [isOpenSettings, setOpenSettings] = useState(false)
   const toggleOpenSettings = () => setOpenSettings(!isOpenSettings)

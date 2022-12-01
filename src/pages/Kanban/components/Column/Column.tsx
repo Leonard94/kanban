@@ -1,4 +1,4 @@
-import { Draggable, Droppable } from 'react-beautiful-dnd'
+import { Droppable } from 'react-beautiful-dnd'
 
 import { TTask } from '../../../../types/types'
 import { Task } from '../Task/Task'
@@ -18,20 +18,25 @@ export const Column: React.FC<TProps> = ({ columnId, name, tasks }) => {
         <div className={styles.title}>{name}</div>
         <div className={styles.quantity}>{tasks.length}</div>
       </div>
-      <div className={styles.column}>
-        <Droppable droppableId={columnId} key={columnId}>
-          {(provided, snapshot) => (
-            <div {...provided.droppableProps} ref={provided.innerRef}>
-              <div className={styles.tasks}>
-                {tasks.map((task, index) => (
-                  <Task key={task.id} index={index} {...task} />
-                ))}
-              </div>
-              {provided.placeholder}
+      <Droppable droppableId={columnId} key={columnId}>
+        {(provided, snapshot) => (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            style={{
+              borderRadius: '10px',
+              background: snapshot.isDraggingOver ? '#4a7ef8' : '#f9f9f9',
+            }}
+          >
+            <div className={styles.tasks}>
+              {tasks.map((task, index) => (
+                <Task key={task.id} index={index} {...task} />
+              ))}
             </div>
-          )}
-        </Droppable>
-      </div>
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </div>
   )
 }
