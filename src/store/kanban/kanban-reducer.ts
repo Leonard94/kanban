@@ -2,31 +2,9 @@ import { ADD_NEW_TASK, SET_COLUMNS } from './kanban-actions'
 
 import Time from '../../utils/helpers/time.helpers'
 
-import { TTask } from '../../types/types'
+import { TAction, TColumns } from '../../types/types'
 
-type TKanbanInitial = {
-  columns: {
-    queue: {
-      name: string
-      tasks: TTask[]
-    }
-    development: {
-      name: string
-      tasks: TTask[]
-    }
-    done: {
-      name: string
-      tasks: TTask[]
-    }
-  }
-}
-
-type TAction = {
-  type: string
-  payload?: any
-}
-
-const initialState: TKanbanInitial = {
+const initialState: TColumns = {
   columns: {
     queue: {
       name: 'Queue',
@@ -97,7 +75,7 @@ const initialState: TKanbanInitial = {
 export const kanbanReducer = (
   state = initialState,
   { type, payload }: TAction
-): TKanbanInitial => {
+): TColumns => {
   switch (type) {
     case SET_COLUMNS:
       return {

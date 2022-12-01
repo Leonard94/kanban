@@ -1,40 +1,19 @@
+import { TAction, TProjectsInitial } from '../../types/types'
 import { ADD_PROJECT, REMOVE_PROJECT, SET_PROJECTS } from './projects-actions'
-
-type TTask = {
-  id: number
-  board: 'Queue' | 'Development' | 'Done'
-  title: string
-  timeCreate: number
-  description?: string
-  important?: boolean
-  child: TChildTasks[] | null
-}
-
-type TChildTasks = {
-  id: number
-  title: string
-  completed: boolean
-}
-
-type TProject = {
-  id: number
-  title: string
-}
-
-type TProjectsInitial = {
-  projects: TProject[]
-}
-
-type TAction = {
-  type: string
-  payload?: any
-}
 
 const initialState: TProjectsInitial = {
   projects: [
     {
       id: 1,
       title: 'Первый Project',
+    },
+    {
+      id: 2,
+      title: 'Второй Project',
+    },
+    {
+      id: 3,
+      title: '3 проект',
     },
   ],
 }

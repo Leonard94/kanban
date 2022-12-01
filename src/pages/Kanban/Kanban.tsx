@@ -1,9 +1,9 @@
-import { DragDropContext } from 'react-beautiful-dnd'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { DragDropContext } from 'react-beautiful-dnd'
 
 import { useAppSelector } from '../../store/hooks'
-import { dragEnd } from './helpers'
+import { dragEnd } from '../../utils/helpers/dragAndDrop.helpers'
 
 import { Column } from './components/Column/Column'
 
