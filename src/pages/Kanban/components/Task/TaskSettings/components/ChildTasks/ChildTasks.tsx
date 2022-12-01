@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import { Button } from '../../../../Button/Button'
+import { Button } from '../../../../../../../components/Button/Button'
 
-import { TChildTasks } from '../../../../../types/types'
+import { TChildTasks } from '../../../../../../../types/types'
+import { AddNewChild } from './AddNewChild/AddNewChild'
 
 import styles from './styles.module.scss'
-import { AddNewChild } from './AddNewChild/AddNewChild'
 
 type TProps = {
   child: TChildTasks[] | null

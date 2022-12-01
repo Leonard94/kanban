@@ -1,4 +1,4 @@
-import { TTask } from '../../../types/types'
+import { TTask } from '../../../../../types/types'
 
 import { Details } from './components/Details/Details'
 import { Comments } from './components/Comments/Comments'

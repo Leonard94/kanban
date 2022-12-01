@@ -1,19 +1,6 @@
 import { SET_COLUMNS } from './kanban-actions'
 
-type TTask = {
-  id?: number
-  title?: string
-  timeCreate?: number
-  description?: string
-  important?: boolean
-  child: TChildTasks[] | null
-}
-
-type TChildTasks = {
-  id: number
-  title: string
-  completed: boolean
-}
+import { TTask } from '../../types/types'
 
 type TKanbanInitial = {
   columns: {

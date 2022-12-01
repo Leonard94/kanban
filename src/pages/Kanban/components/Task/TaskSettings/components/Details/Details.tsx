@@ -1,4 +1,4 @@
-import * as Icon from '../../../../../assets/icons/index'
+import * as Icon from '../../../../../../../assets/icons/index'
 import styles from './styles.module.scss'
 
 export const Details = () => {
