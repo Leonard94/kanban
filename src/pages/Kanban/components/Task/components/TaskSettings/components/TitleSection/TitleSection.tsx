@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Input } from '../../../../../../../components/Input/Input'
+import { Input } from '../../../../../../../../components/Input/Input'
 
 import styles from './styles.module.scss'
 

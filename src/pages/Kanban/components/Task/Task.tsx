@@ -3,11 +3,12 @@ import { Draggable } from 'react-beautiful-dnd'
 
 import { TChildTasks } from '../../../../types/types'
 
-import { TaskSettings } from './TaskSettings/TaskSettings'
+import { TaskSettings } from './components/TaskSettings/TaskSettings'
 import { Modal } from '../../../../components/Modal/Modal'
 
 import * as Icon from '../../../../assets/icons/index'
 import styles from './styles.module.scss'
+import { TaskFooter } from './components/TaskFooter/TaskFooter'
 
 // @duplicate
 type TProps = {
@@ -47,20 +48,7 @@ export const Task: React.FC<TProps> = (props) => {
               </div>
             )}
           </div>
-          <div className={styles.info}>
-            <div className={styles.info_item}>
-              <Icon.Comments />
-              <span>3</span>
-            </div>
-            <div className={styles.info_item}>
-              <Icon.Subtasks />
-              <span>{child?.length || 0}</span>
-            </div>
-            <div className={styles.info_item}>
-              <Icon.Time />
-              <span>01:32</span>
-            </div>
-          </div>
+          <TaskFooter child={child} />
           <Modal isOpen={isOpenSettings} onClose={toggleOpenSettings}>
             <TaskSettings {...props} />
           </Modal>

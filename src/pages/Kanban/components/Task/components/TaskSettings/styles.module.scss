@@ -1,0 +1,7 @@
+@import '../../../../../../scss/typography.scss';
+@import '../../../../../../scss/variables.scss';
+
+.settings {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+}
