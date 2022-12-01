@@ -6,29 +6,37 @@ import { useAppSelector } from '../../store/hooks'
 import { dragEnd } from '../../utils/helpers/dragAndDrop.helpers'
 
 import { Column } from './components/Column/Column'
-
-import styles from './styles.module.scss'
 import { AddNewTask } from './components/AddNewTask/AddNewTask'
 
-export const Kanban = () => {
-  const { id } = useParams()
-  const { columns } = useAppSelector((state) => state.kanban)
+import styles from './styles.module.scss'
 
+export const Kanban = () => {
+  const projectId = Number(useParams().id)
   const dispatch = useDispatch()
 
+  const project = useAppSelector((state) =>
+    state.projects.projects.find((projects) => projects.id === projectId)
+  )
+
   const handleDrag = (result: any) => {
-    dragEnd(result, columns, dispatch)
+    if (project) {
+      dragEnd(result, project.columns, dispatch, projectId)
+    }
+  }
+
+  if (!project) {
+    return <div>Такого проекта не существует</div>
   }
 
   return (
     <>
       <div className={styles.head}>
-        <h1>Your tasks</h1>
-        <AddNewTask projectId={id} />
+        <h1>{project.title}</h1>
+        <AddNewTask projectId={projectId} />
       </div>
       <div className={styles.kanban}>
         <DragDropContext onDragEnd={handleDrag}>
-          {Object.entries(columns).map(([columnId, column]) => (
+          {Object.entries(project.columns).map(([columnId, column]) => (
             <Column key={columnId} columnId={columnId} {...column} />
           ))}
         </DragDropContext>

@@ -14,19 +14,17 @@ export type TChildTasks = {
 }
 
 export type TColumns = {
-  columns: {
-    queue: {
-      name: string
-      tasks: TTask[]
-    }
-    development: {
-      name: string
-      tasks: TTask[]
-    }
-    done: {
-      name: string
-      tasks: TTask[]
-    }
+  queue: {
+    name: string
+    tasks: TTask[]
+  }
+  development: {
+    name: string
+    tasks: TTask[]
+  }
+  done: {
+    name: string
+    tasks: TTask[]
   }
 }
 
@@ -40,11 +38,14 @@ export type TActionAddProject = {
   title: string
 }
 
-type TProject = {
+export type TProject = {
   id: number
   title: string
+  columns: TColumns
 }
 
 export type TProjectsInitial = {
   projects: TProject[]
 }
+
+export type TProjectId = number

@@ -1,6 +1,11 @@
-import { setColumns } from '../../store/kanban/kanban-actions'
+import { setColumns } from '../../store/projects/projects-actions'
 
-export const dragEnd = (result: any, columns: any, dispatch: any) => {
+export const dragEnd = (
+  result: any,
+  columns: any,
+  dispatch: any,
+  projectId: number
+) => {
   const { source, destination } = result
   if (!destination) return
 
@@ -12,7 +17,7 @@ export const dragEnd = (result: any, columns: any, dispatch: any) => {
     const [removed] = sourceItems.splice(source.index, 1)
     destItems.splice(destination.index, 0, removed)
     dispatch(
-      setColumns({
+      setColumns(projectId, {
         ...columns,
         [source.droppableId]: {
           ...sourceColumn,
@@ -31,7 +36,7 @@ export const dragEnd = (result: any, columns: any, dispatch: any) => {
     copiedItems.splice(destination.index, 0, removed)
 
     dispatch(
-      setColumns({
+      setColumns(projectId, {
         ...columns,
         [source.droppableId]: {
           ...column,

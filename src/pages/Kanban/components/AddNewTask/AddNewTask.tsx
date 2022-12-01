@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { addNewTask } from '../../../../store/kanban/kanban-actions'
+import { addNewTask } from '../../../../store/projects/projects-actions'
 
 import { Button } from '../../../../components/Button/Button'
 import { Input } from '../../../../components/Input/Input'
@@ -26,7 +26,7 @@ export const AddNewTask = ({ projectId }: any) => {
       return setError('Поле должно содержать не менее 3 символов')
     }
 
-    dispatch(addNewTask(title))
+    dispatch(addNewTask(projectId, title))
     reset()
     toggleOpenModal()
   }
