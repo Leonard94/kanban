@@ -1,9 +1,10 @@
 import Time from '../../utils/helpers/time.helpers'
 
-import { TAction, TProjectsInitial } from '../../types/types'
+import { TAction, TProject, TProjectsInitial } from '../../types/types'
 import {
   ADD_NEW_TASK,
   ADD_PROJECT,
+  DELETE_TASK,
   REMOVE_PROJECT,
   SET_COLUMNS,
   SET_PROJECTS,

@@ -8,19 +8,20 @@ import { TitleSection } from './components/TitleSection/TitleSection'
 import styles from './styles.module.scss'
 
 export const TaskSettings: React.FC<TTask> = ({
+  id,
   title,
   description,
   important,
-  child
+  child,
 }) => {
   return (
     <div className={styles.settings}>
       <div className={styles.content}>
         <TitleSection title={title} description={description} />
-        <ChildTasks child={child}/>
+        <ChildTasks child={child} />
         <Comments />
       </div>
-      <Details />
+      <Details id={id} />
     </div>
   )
 }

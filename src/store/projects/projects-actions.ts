@@ -34,7 +34,7 @@ export const addNewTask = (projectId: TProjectId, title: string) => ({
   payload: { projectId, title },
 })
 
-export const deleteTask = (taskId: number) => ({
+export const deleteTask = (projectId: TProjectId, taskId: number) => ({
   type: ADD_NEW_TASK,
-  payload: taskId,
+  payload: { projectId, taskId },
 })
